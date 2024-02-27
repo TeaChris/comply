@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { Navbar } from '@/components/navbar'
+import { Toaster } from 'sonner'
 
-const font = Poppins({
+const font = Inter({
   weight: ['100', '300', '500', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <Navbar />
         <div className="w-full pt-12">{children}</div>
+        <Toaster position="bottom-right" />
       </body>
     </html>
   )

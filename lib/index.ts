@@ -29,13 +29,17 @@ export const nav = {
   },
 } as const
 
-type Products = {
+export type Product = {
   id: string
   img: StaticImageData
   name: string
   desc: string
+  descip: string
   price: string
-}[]
+  quantity: number
+}
+
+export type Products = Product[]
 
 export const products: Products = [
   {
@@ -43,41 +47,60 @@ export const products: Products = [
     img: p1,
     name: 'Milky Lactation Cookies',
     desc: 'Lactation cookies to improve production of breastmilk',
+    descip:
+      'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
     price: '3,000',
+    quantity: 0,
   },
   {
     id: 'bghsf8fsfg-asfwre3asd0-9',
     img: p2,
     name: 'Breast Milk Bag',
     desc: 'Lactation cookies to improve production of breastmilk',
+    descip:
+      'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
+
     price: '4,500',
+    quantity: 0,
   },
   {
     id: 'basaskmfsa-nsakjnssak7-mkkemn3',
     img: p3,
     name: 'Milky Enrich Shakes',
     desc: 'Lactation cookies to improve production of breastmilk',
+    descip:
+      'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
     price: '3,500',
+    quantity: 0,
   },
   {
     id: 'bjkcsncjks-sjabha-juwye',
     img: p4,
     name: 'Milky Lactation Tea',
     desc: 'Lactation cookies to improve production of breastmilk',
+    descip:
+      'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
     price: '6,000',
+    quantity: 0,
   },
   {
     id: 'hvasbjks-jsajaska-23',
     img: p5,
     name: 'Milky Lactation Granola',
     desc: 'Lactation cookies to improve production of breastmilk',
+    descip:
+      'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
     price: '4,000',
+    quantity: 0,
   },
   {
     id: 'hjbcsakna-sajbsjaa-76GV',
     img: p1,
     name: 'Milky Lactation Cookies',
     desc: 'Lactation cookies to improve production of breastmilk',
+    descip:
+      'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
     price: '3,000',
+    quantity: 0,
   },
 ]
