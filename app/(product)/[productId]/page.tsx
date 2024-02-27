@@ -1,9 +1,5 @@
-import { FC } from 'react'
+import React from 'react'
 
-interface ProductIdProps {
-  // My Custom Props Here
-}
-
-export const ProductId: FC<ProductIdProps> = ({}) => {
-  return <div>ProductId Component</div>
+export default function Page({ params }: { params: { productId: string } }) {
+  return <div>{params.productId}</div>
 }

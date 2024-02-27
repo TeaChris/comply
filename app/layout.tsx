@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { Navbar } from '@/components/navbar'
 
 const font = Poppins({
-  weight: ['300', '500', '700', '900'],
+  weight: ['100', '300', '500', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
 })

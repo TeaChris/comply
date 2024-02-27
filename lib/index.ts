@@ -1,6 +1,15 @@
 import logo from '@/public/log.png'
 import car from '@/public/cart.png'
 
+// products
+import p1 from '@/public/products/p1.png'
+import p2 from '@/public/products/p2.png'
+import p3 from '@/public/products/p3.png'
+import p4 from '@/public/products/p4.png'
+import p5 from '@/public/products/p5.png'
+
+import { StaticImageData } from 'next/image'
+
 export const nav = {
   img: logo,
   alt: 'milky logo',
@@ -19,3 +28,56 @@ export const nav = {
     tit: 'Cart',
   },
 } as const
+
+type Products = {
+  id: string
+  img: StaticImageData
+  name: string
+  desc: string
+  price: string
+}[]
+
+export const products: Products = [
+  {
+    id: '1bjak-agmgldggagdjknkg',
+    img: p1,
+    name: 'Milky Lactation Cookies',
+    desc: 'Lactation cookies to improve production of breastmilk',
+    price: '3,000',
+  },
+  {
+    id: 'bghsf8fsfg-asfwre3asd0-9',
+    img: p2,
+    name: 'Breast Milk Bag',
+    desc: 'Lactation cookies to improve production of breastmilk',
+    price: '4,500',
+  },
+  {
+    id: 'basaskmfsa-nsakjnssak7-mkkemn3',
+    img: p3,
+    name: 'Milky Enrich Shakes',
+    desc: 'Lactation cookies to improve production of breastmilk',
+    price: '3,500',
+  },
+  {
+    id: 'bjkcsncjks-sjabha-juwye',
+    img: p4,
+    name: 'Milky Lactation Tea',
+    desc: 'Lactation cookies to improve production of breastmilk',
+    price: '6,000',
+  },
+  {
+    id: 'hvasbjks-jsajaska-23',
+    img: p5,
+    name: 'Milky Lactation Granola',
+    desc: 'Lactation cookies to improve production of breastmilk',
+    price: '4,000',
+  },
+  {
+    id: 'hjbcsakna-sajbsjaa-76GV',
+    img: p1,
+    name: 'Milky Lactation Cookies',
+    desc: 'Lactation cookies to improve production of breastmilk',
+    price: '3,000',
+  },
+]
