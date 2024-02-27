@@ -33,8 +33,8 @@ export function Navbar() {
               ))}
             </div>
 
-            <div className="flex items-center space-x-3">
-              <div className="w-[62px] aspect-square rounded-full bg-primary flex items-center justify-center">
+            <div className="flex items-center space-x-2">
+              <div className="w-[62px] aspect-square rounded-full bg-colorPrimary flex items-center justify-center">
                 <Image
                   src={nav.cart.img}
                   alt={nav.cart.tit}
@@ -43,7 +43,11 @@ export function Navbar() {
                   className="object-cover"
                 />
               </div>
-              <h2 className="font-bold text-lg">{nav.cart.tit}</h2>
+
+              <div>
+                <h2 className="font-bold text-lg">{nav.cart.tit}</h2>
+                <p className="text-xs font-medium">3 items</p>
+              </div>
             </div>
           </div>
         </nav>

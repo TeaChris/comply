@@ -23,10 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn('relative h-full font-sans antialiased', font.className)}
+        className={cn(
+          'relative h-full font-sans antialiased bg-neutral-50',
+          font.className
+        )}
       >
         <Navbar />
-        <div>{children}</div>
+        <div className="w-full pt-12">{children}</div>
       </body>
     </html>
   )
