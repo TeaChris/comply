@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { useCart } from '@/hooks/use-cart'
 
@@ -11,10 +12,13 @@ interface Props {
 }
 
 export function AddToCart({ product }: Props) {
+  const router = useRouter()
+
   const { addItem, increaseItem, items } = useCart()
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
-  const itemCount = items.length
   const [isMounted, setIsMounted] = useState<boolean>(false)
+
+  const itemCount = items.length
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -27,18 +31,21 @@ export function AddToCart({ product }: Props) {
   useEffect(() => {
     setIsMounted(true)
   }, [])
+
+  const onClick = () => {
+    // @ts-ignore
+    addItem(product)
+    setIsSuccess(true)
+    router.push('/cart')
+  }
   return (
     <div className="pt-8 flex space-x-16 items-center">
       <button
         type="button"
-        onClick={() => {
-          // @ts-ignore
-          addItem(product)
-          setIsSuccess(true)
-        }}
+        onClick={onClick}
         className="w-[190px] h-[52px] rounded-[10px] bg-colorPrimary text-white text-lg font-[500] flex items-center justify-center hover:opacity-90 transition-all hover:shadow-lg"
       >
-        {isSuccess ? 'Added!' : 'Add to cart'}
+        Add to cart
       </button>
 
       <div className="flex items-center space-x-3">
