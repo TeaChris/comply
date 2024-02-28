@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { SignUp } from './auth/sign-up'
 import { Login } from './auth/login'
 import { useCurrentUser } from '@/hooks/use-current-user'
+import { signIn } from 'next-auth/react'
 
 export function AuthFlow() {
   const [sign, setSign] = useState<boolean>(false)
@@ -14,6 +15,10 @@ export function AuthFlow() {
   const [log, setLog] = useState<boolean>(false)
 
   const user = useCurrentUser()
+
+  const clickMe = (provider: 'google') => {
+    signIn(provider, { callbackUrl: '/cart' })
+  }
 
   const onClick = () => {
     setLog(!log)
@@ -46,7 +51,10 @@ export function AuthFlow() {
                 </div>
 
                 <div className="w-full space-y-5 flex flex-col items-center">
-                  <button className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition">
+                  <button
+                    className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
+                    onClick={() => clickMe('google')}
+                  >
                     <Image
                       src="/g.svg"
                       alt="login in with google"
