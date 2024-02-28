@@ -21,6 +21,7 @@ export const useCart = create(
   persist<CartState>(
     (set, get) => ({
       items: [],
+
       addItem: (product) => {
         const currentProducts = get().items
         const existingProduct = currentProducts.find(
@@ -75,7 +76,6 @@ export const useCart = create(
           }
         }
       },
-
       clearCart: () => set({ items: [] }),
     }),
     {

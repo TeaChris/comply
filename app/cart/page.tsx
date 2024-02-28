@@ -24,7 +24,7 @@ const Cart: FC<CartProps> = ({}) => {
   }, [])
   return (
     <MaxWidthWrapper>
-      <div className="w-full space-y-8">
+      <div className="w-full space-y-0">
         <div className="w-[48%] pb-6 border-b-2">
           <Link
             href={'/'}
@@ -35,7 +35,7 @@ const Cart: FC<CartProps> = ({}) => {
         </div>
 
         <div className="w-full flex justify-between">
-          <div className="w-[48%] space-y-10">
+          <div className="w-[48%] space-y-10 pt-10">
             <div className="space-y-2">
               <h1 className="text-[33px] font-bold">Cart</h1>
               <p className="font-semibold text-[17px] text-[#949494]">

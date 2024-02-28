@@ -35,7 +35,7 @@ export type Product = {
   name: string
   desc: string
   descip: string
-  price: string
+  price: number
   quantity: number
 }
 
@@ -49,7 +49,7 @@ export const products: Products = [
     desc: 'Lactation cookies to improve production of breastmilk',
     descip:
       'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
-    price: '3,000',
+    price: 3000,
     quantity: 0,
   },
   {
@@ -60,7 +60,7 @@ export const products: Products = [
     descip:
       'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
 
-    price: '4,500',
+    price: 4500,
     quantity: 0,
   },
   {
@@ -70,7 +70,7 @@ export const products: Products = [
     desc: 'Lactation cookies to improve production of breastmilk',
     descip:
       'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
-    price: '3,500',
+    price: 3500,
     quantity: 0,
   },
   {
@@ -80,7 +80,7 @@ export const products: Products = [
     desc: 'Lactation cookies to improve production of breastmilk',
     descip:
       'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
-    price: '6,000',
+    price: 6000,
     quantity: 0,
   },
   {
@@ -90,7 +90,7 @@ export const products: Products = [
     desc: 'Lactation cookies to improve production of breastmilk',
     descip:
       'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
-    price: '4,000',
+    price: 4000,
     quantity: 0,
   },
   {
@@ -100,7 +100,7 @@ export const products: Products = [
     desc: 'Lactation cookies to improve production of breastmilk',
     descip:
       'Imagine being a mother who works every morning and still having to take care of the baby. Our lactation cookies are specially made for you. Available in 2 flavors, you can have more than one kind of cookie because it’s so yummy. You might eat it too fast because it tastes so good',
-    price: '3,000',
+    price: 3000,
     quantity: 0,
   },
 ]

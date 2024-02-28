@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'relative h-full font-sans antialiased bg-neutral-50',
+          'relative h-full text-black font-sans antialiased bg-neutral-50',
           font.className
         )}
       >
