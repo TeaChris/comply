@@ -25,7 +25,7 @@ const Cart: FC<CartProps> = ({}) => {
   return (
     <MaxWidthWrapper>
       <div className="w-full space-y-0">
-        <div className="w-[48%] pb-6 border-b-2">
+        <div className="w-[48%] pb-6 border-b-2 flex space-x-4">
           <Link
             href={'/'}
             className="text-black text-xl font-medium flex space-x-6 bg-transparent transition-all"

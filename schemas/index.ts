@@ -47,7 +47,7 @@ export const signupSchema = z.object({
   password: z.string().min(1, {
     message: 'Password is required',
   }),
-  phone: z.number().min(11, {
+  phone: z.string().min(11, {
     message: 'Phone number is required',
   }),
 })

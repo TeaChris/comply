@@ -8,13 +8,18 @@ import { Dispatch, SetStateAction, useTransition } from 'react'
 import { Input } from '../ui/input'
 import { TSignUpValidator, signupSchema } from '@/schemas'
 import { cn } from '@/lib/utils'
+import { signUp } from '@/actions/signup'
+import { toast } from 'sonner'
+import { Loader2 } from 'lucide-react'
 
 interface Props {
+  log: boolean
   sign: boolean
+  setLog: Dispatch<SetStateAction<boolean>>
   setSign: Dispatch<SetStateAction<boolean>>
 }
 
-export function SignUp({ sign, setSign }: Props) {
+export function SignUp({ sign, setSign, log, setLog }: Props) {
   const [isPending, startTransition] = useTransition()
 
   const {
@@ -26,7 +31,19 @@ export function SignUp({ sign, setSign }: Props) {
     resolver: zodResolver(signupSchema),
   })
 
-  const onSubmit = (values: TSignUpValidator) => {}
+  const onSubmit = (values: TSignUpValidator) => {
+    startTransition(() => {
+      signUp(values).then((data) => {
+        if (data.error) {
+          toast.error(data.error)
+        } else {
+          toast.success(data.success)
+        }
+      })
+    })
+
+    reset()
+  }
   return (
     <>
       <div className="w-full space-y-10">
@@ -53,6 +70,7 @@ export function SignUp({ sign, setSign }: Props) {
                 'h-[43px] text-[15px] text-[#a3a3a3] rounded-[10px]',
                 errors.password && 'focus-visible:ring-red-500'
               )}
+              type="password"
               placeholder="Password"
               disabled={isPending}
             />
@@ -68,8 +86,16 @@ export function SignUp({ sign, setSign }: Props) {
             <button
               className="w-full h-[47px] rounded-[15px] bg-colorPrimary flex items-center justify-center text-white font-semibold text-lg hover:opacity-90 transition-all"
               type="submit"
+              disabled={isPending}
             >
-              Sign up
+              {isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Signing up...
+                </>
+              ) : (
+                <>Sign up</>
+              )}
             </button>
           </form>
           <h6

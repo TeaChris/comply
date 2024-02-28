@@ -3,13 +3,14 @@ import { MaxWidthWrapper } from './max-width-wapper'
 import Image from 'next/image'
 import { nav } from '@/lib'
 import { Cart } from './cart'
+import { Sign } from './button'
 
 export function Navbar() {
   return (
     <header className="w-full h-40">
       <MaxWidthWrapper>
         <nav className="flex h-40 items-center justify-between">
-          <div className="flex">
+          <div className="flex space-x-12">
             <Link href="/">
               <Image
                 src={nav.img}
@@ -19,6 +20,7 @@ export function Navbar() {
                 className="object-cover"
               />
             </Link>
+            <Sign />
           </div>
 
           <div className="flex space-x-10 items-center">

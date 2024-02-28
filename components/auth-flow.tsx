@@ -1,15 +1,19 @@
+'use client'
+
 import Image from 'next/image'
 import { Checkout } from './auth/checkout'
 
 import { useState } from 'react'
 import { SignUp } from './auth/sign-up'
 import { Login } from './auth/login'
+import { useCurrentUser } from '@/hooks/use-current-user'
 
 export function AuthFlow() {
   const [sign, setSign] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(true)
   const [log, setLog] = useState<boolean>(false)
-  const user = false
+
+  const user = useCurrentUser()
 
   const onClick = () => {
     setLog(!log)
@@ -28,7 +32,7 @@ export function AuthFlow() {
           <Checkout />
         </div>
       ) : sign ? (
-        <SignUp sign={sign} setSign={setSign} />
+        <SignUp sign={sign} setSign={setSign} log={log} setLog={setLog} />
       ) : (
         <>
           {active && (
