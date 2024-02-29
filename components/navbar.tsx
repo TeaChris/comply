@@ -20,7 +20,6 @@ export function Navbar() {
                 className="object-cover"
               />
             </Link>
-            {/* <Sign /> */}
           </div>
 
           <div className="flex space-x-10 items-center">

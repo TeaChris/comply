@@ -1,4 +1,5 @@
 import { signOut } from '@/auth'
+import { UserButton } from '@clerk/nextjs'
 
 export function Sign() {
   return (
@@ -10,6 +11,7 @@ export function Sign() {
       }}
     >
       <button type="submit">sign out</button>
+      <UserButton afterSignOutUrl="/" />
     </form>
   )
 }
