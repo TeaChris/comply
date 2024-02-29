@@ -50,6 +50,7 @@ export function AuthFlow() {
                   <button
                     className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
                     onClick={() => {}}
+                    disabled
                   >
                     <Image
                       src="/g.svg"
@@ -60,7 +61,10 @@ export function AuthFlow() {
                     />
                     Continue with Google
                   </button>
-                  <button className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition">
+                  <button
+                    className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
+                    disabled
+                  >
                     <Image
                       src="/f.svg"
                       alt="login in with google"
