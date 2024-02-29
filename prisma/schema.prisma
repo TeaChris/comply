@@ -39,3 +39,30 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+enum Status {
+  PAID
+  PENDING
+}
+
+model Order{
+  id                 String    @id @default(cuid()) @map("_id")
+  userId             String
+  firstName          String
+  lastName           String
+  email              String
+  phone              String
+  address            String
+  country            String
+  state              String
+  city               String
+  info               String
+  coupon             String?
+  price              Float 
+  status             Status @default(PAID)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId])
+}

@@ -13,11 +13,14 @@ import { TCheckoutValidator, checkoutSchema } from '@/schemas'
 import { cn, comma } from '@/lib/utils'
 
 import { useCart } from '@/hooks/use-cart'
-import { LockKeyhole } from 'lucide-react'
+import { Loader2, LockKeyhole } from 'lucide-react'
+import { toast } from 'sonner'
+
+import axios from 'axios'
 
 export function Checkout() {
   const { items } = useCart()
-  const [isPending, startTransition] = useTransition()
+  const [isLoading, setIsLoading] = useState<boolean>()
   const {
     reset,
     register,
@@ -32,9 +35,22 @@ export function Checkout() {
   const discount = -500
 
   const total = cartTotal + shipping - discount
+
+  const onSubmit = async (values: TCheckoutValidator) => {
+    try {
+      setIsLoading(true)
+      const res = await axios.post('/api/order', values)
+      toast.success('Your product was successfully created')
+      // reset()
+    } catch (error) {
+      setIsLoading(false)
+      toast.error('Something went wrong, please try again')
+    }
+  }
+
   return (
     <div className="w-full">
-      <form onSubmit={() => {}} className="w-full space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
         <div className="w-full flex items-center justify-between h-[43px]">
           <Input
             {...register('firstName')}
@@ -43,7 +59,7 @@ export function Checkout() {
               errors.firstName && 'focus-visible:ring-red-500'
             )}
             placeholder="First Name"
-            disabled={isPending}
+            disabled={isLoading}
           />
           <Input
             {...register('lastName')}
@@ -52,7 +68,7 @@ export function Checkout() {
               errors.lastName && 'focus-visible:ring-red-500'
             )}
             placeholder="Last Name"
-            disabled={isPending}
+            disabled={isLoading}
           />
         </div>
         <Input
@@ -62,7 +78,7 @@ export function Checkout() {
             errors.email && 'focus-visible:ring-red-500'
           )}
           placeholder="Email"
-          disabled={isPending}
+          disabled={isLoading}
         />
         <Input
           {...register('phone')}
@@ -71,7 +87,7 @@ export function Checkout() {
             errors.phone && 'focus-visible:ring-red-500'
           )}
           placeholder="Phone"
-          disabled={isPending}
+          disabled={isLoading}
         />
 
         <div className="w-full space-y-6">
@@ -83,7 +99,7 @@ export function Checkout() {
               errors.address && 'focus-visible:ring-red-500'
             )}
             placeholder="Address"
-            disabled={isPending}
+            disabled={isLoading}
           />
           <Input
             {...register('country')}
@@ -92,7 +108,7 @@ export function Checkout() {
               errors.country && 'focus-visible:ring-red-500'
             )}
             placeholder="Country"
-            disabled={isPending}
+            disabled={isLoading}
           />
           <div className="w-full flex items-center justify-between h-[43px]">
             <Input
@@ -102,7 +118,7 @@ export function Checkout() {
                 errors.state && 'focus-visible:ring-red-500'
               )}
               placeholder="State"
-              disabled={isPending}
+              disabled={isLoading}
             />
             <Input
               {...register('city')}
@@ -111,7 +127,7 @@ export function Checkout() {
                 errors.city && 'focus-visible:ring-red-500'
               )}
               placeholder="City"
-              disabled={isPending}
+              disabled={isLoading}
             />
           </div>
           <Textarea
@@ -121,7 +137,7 @@ export function Checkout() {
               errors.info && 'focus-visible:ring-red-500'
             )}
             placeholder="Additional Information"
-            disabled={isPending}
+            disabled={isLoading}
           />
           <div className="w-full space-y-6">
             <h6 className="text-sm">Coupon (Optional)</h6>
@@ -130,7 +146,7 @@ export function Checkout() {
               className={cn(
                 'h-[43px] text-[15px] text-[#a3a3a3] rounded-[10px]'
               )}
-              disabled={isPending}
+              disabled={isLoading}
             />
           </div>
         </div>
@@ -160,7 +176,13 @@ export function Checkout() {
               className="w-full h-[51px] rounded-[10px] bg-colorPrimary flex items-center justify-center text-white font-semibold text-lg hover:opacity-90 transition-all"
               type="submit"
             >
-              Pay N{comma(total)}
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                </>
+              ) : (
+                <>Pay N{comma(total)}</>
+              )}
             </button>
             <div className=" text-xs text-[#a7a7a7] flex space-x-2 items-center">
               <LockKeyhole className="w-3 h-3" />

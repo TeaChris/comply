@@ -14,12 +14,12 @@ export const checkoutSchema = z.object({
     message: 'Firstname is required',
   }),
   lastName: z.string().min(5, {
-    message: 'lastname is required',
+    message: 'Lastname is required',
   }),
   email: z.string().email({
     message: 'Email is required',
   }),
-  phone: z.number().min(11, {
+  phone: z.string().min(11, {
     message: 'Phone number is required',
   }),
   address: z.string().min(5, {
@@ -28,7 +28,7 @@ export const checkoutSchema = z.object({
   country: z.string().min(5, {
     message: 'country is required',
   }),
-  state: z.string().min(5, {
+  state: z.string().min(3, {
     message: 'state is required',
   }),
   city: z.string().min(5, {
