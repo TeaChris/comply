@@ -14,12 +14,14 @@ import { cn, comma } from '@/lib/utils'
 
 import { useCart } from '@/hooks/use-cart'
 import { Loader2, LockKeyhole } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
 import axios from 'axios'
 
 export function Checkout() {
   const { items } = useCart()
+  const router = useRouter()
   const [isLoading, setIsLoading] = useState<boolean>()
   const {
     reset,
@@ -41,7 +43,8 @@ export function Checkout() {
       setIsLoading(true)
       const res = await axios.post('/api/order', values)
       toast.success('Your product was successfully created')
-      // reset()
+      router.push(`/success/${res.data.id}`)
+      reset()
     } catch (error) {
       setIsLoading(false)
       toast.error('Something went wrong, please try again')

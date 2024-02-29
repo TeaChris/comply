@@ -1,10 +1,8 @@
 import { currentUserId } from '@/lib/auth'
 import { db } from '@/lib/db'
-import { Total } from '@/lib/utils'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
-  const cartTotal = Total()
   try {
     const userId = await currentUserId()
 
@@ -39,7 +37,6 @@ export async function POST(req: Request) {
         city,
         info,
         coupon,
-        price: cartTotal,
         status,
       },
     })

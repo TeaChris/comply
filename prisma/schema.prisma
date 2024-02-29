@@ -58,7 +58,6 @@ model Order{
   city               String
   info               String
   coupon             String?
-  price              Float 
   status             Status @default(PAID)
 
   createdAt   DateTime @default(now())
