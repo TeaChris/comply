@@ -16,10 +16,6 @@ export function AuthFlow() {
 
   const user = useCurrentUser()
 
-  const clickMe = (provider: 'google') => {
-    signIn(provider, { callbackUrl: '/cart' })
-  }
-
   const onClick = () => {
     setLog(!log)
     setActive(!active)
@@ -53,7 +49,7 @@ export function AuthFlow() {
                 <div className="w-full space-y-5 flex flex-col items-center">
                   <button
                     className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
-                    onClick={() => clickMe('google')}
+                    onClick={() => {}}
                   >
                     <Image
                       src="/g.svg"
