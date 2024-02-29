@@ -16,6 +16,7 @@ export const {
   },
   callbacks: {
     async signIn({ user }) {
+      // @ts-ignore
       const existingUser = await getUserById(user.id)
 
       // enabling 2FA authentication
@@ -38,6 +39,7 @@ export const {
       }
 
       if (session.user) {
+        // @ts-ignore
         session.user.email = token.email
       }
       return session
