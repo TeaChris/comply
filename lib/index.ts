@@ -19,7 +19,7 @@ export const nav = {
       label: 'home',
     },
     {
-      href: 'order',
+      href: '/order',
       label: 'my order',
     },
   ],
