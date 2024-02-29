@@ -26,7 +26,7 @@ export function AuthFlow() {
 
   return (
     <>
-      {userId || user ? (
+      {userId ? (
         <div className="w-full h-max rounded-[11px] bg-[#F9F9F9] pt-6 px-3 pb-16 space-y-8">
           <div className="space-y-2">
             <h2 className="font-bold text-[30px]">Checkout</h2>
@@ -51,33 +51,37 @@ export function AuthFlow() {
                 </div>
 
                 <div className="w-full space-y-5 flex flex-col items-center">
-                  <Link href="/sign-in" className="w-full">
-                    <button
-                      className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
-                      onClick={() => {}}
-                    >
-                      <Image
-                        src="/g.svg"
-                        alt="login in with google"
-                        width={50}
-                        height={50}
-                        className="w-[30px] aspect-square object-cover"
-                      />
-                      Continue with Google
-                    </button>
-                  </Link>
-                  <Link href="/sign-in" className="w-full">
-                    <button className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition">
-                      <Image
-                        src="/f.svg"
-                        alt="login in with google"
-                        width={50}
-                        height={50}
-                        className="w-[30px] aspect-square object-cover"
-                      />
-                      Continue with Facebook
-                    </button>
-                  </Link>
+                  {/* <Link href="/sign-in" className="w-full"> */}
+                  <button
+                    className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
+                    onClick={() => {}}
+                    disabled
+                  >
+                    <Image
+                      src="/g.svg"
+                      alt="login in with google"
+                      width={50}
+                      height={50}
+                      className="w-[30px] aspect-square object-cover"
+                    />
+                    Continue with Google
+                  </button>
+                  {/* </Link> */}
+                  {/* <Link href="/sign-in" className="w-full"> */}
+                  <button
+                    className="w-full h-[51px] flex font-bold text-base text-white justify-center items-center rounded-[15px] bg-colorPrimary gap-4 hover:opacity-90 transition"
+                    disabled
+                  >
+                    <Image
+                      src="/f.svg"
+                      alt="login in with google"
+                      width={50}
+                      height={50}
+                      className="w-[30px] aspect-square object-cover"
+                    />
+                    Continue with Facebook
+                  </button>
+                  {/* </Link> */}
                   <h6 className="text-[15px] font-medium text-[#949494]">
                     Or use your password to{' '}
                     <span

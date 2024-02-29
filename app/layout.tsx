@@ -7,7 +7,7 @@ import { Toaster } from 'sonner'
 import { SessionProvider } from 'next-auth/react'
 import { auth } from '@/auth'
 
-import { ClerkProvider } from '@clerk/nextjs'
+// import { ClerkProvider } from '@clerk/nextjs'
 
 const font = Inter({
   weight: ['100', '300', '500', '700', '900'],
@@ -28,20 +28,20 @@ export default async function RootLayout({
   const session = await auth()
   return (
     <SessionProvider session={session}>
-      <ClerkProvider>
-        <html lang="en">
-          <body
-            className={cn(
-              'relative h-full text-black font-sans antialiased bg-neutral-50',
-              font.className
-            )}
-          >
-            <Navbar />
-            <div className="w-full pt-12">{children}</div>
-            <Toaster position="bottom-right" />
-          </body>
-        </html>
-      </ClerkProvider>
+      {/* <ClerkProvider> */}
+      <html lang="en">
+        <body
+          className={cn(
+            'relative h-full text-black font-sans antialiased bg-neutral-50',
+            font.className
+          )}
+        >
+          <Navbar />
+          <div className="w-full pt-12">{children}</div>
+          <Toaster position="bottom-right" />
+        </body>
+      </html>
+      {/* </ClerkProvider> */}
     </SessionProvider>
   )
 }
