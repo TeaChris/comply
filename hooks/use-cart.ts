@@ -13,7 +13,6 @@ type CartState = {
   items: Product[]
   addItem: (product: Product) => void
   removeItem: (productId: string) => void
-  increaseItem: (productId: string) => void
   clearCart: () => void
 }
 
@@ -34,19 +33,6 @@ export const useCart = create(
 
         set({ items: [...get().items, product] })
         toast.success('Product added to cart.')
-      },
-
-      increaseItem: (id: string) => {
-        set((state) => {
-          const updatedItems = state.items.map((item) => {
-            if (item.id === id) {
-              return { ...item, quantity: item.quantity + 1 }
-            }
-            return item
-          })
-          return { items: updatedItems }
-        })
-        toast.success('Product quantity increased.')
       },
 
       removeItem: (id) => {
