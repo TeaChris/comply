@@ -14,7 +14,7 @@ interface Props {
 export function AddToCart({ product }: Props) {
   const router = useRouter()
 
-  const { addItem, increaseItem, items } = useCart()
+  const { addItem, items } = useCart()
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const [isMounted, setIsMounted] = useState<boolean>(false)
 
