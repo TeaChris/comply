@@ -1,4 +1,5 @@
 import { products } from '@/lib'
+import { comma } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
@@ -29,7 +30,9 @@ const Products: FC<ProductsProps> = ({}) => {
             <p className="text-[#838383] text-[15px] font-[300]">{pro.desc}</p>
 
             <div className="w-full flex items-center justify-between pt-4">
-              <h2 className="font-bold text-black text-lg">{pro.price} NGN</h2>
+              <h2 className="font-bold text-black text-lg">
+                {comma(pro.price)} NGN
+              </h2>
               <Link href={`/${pro.id}`}>
                 <button
                   type="button"

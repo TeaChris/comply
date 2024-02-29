@@ -4,6 +4,7 @@ import { AddToCart } from '@/components/add-to-cart'
 import { MaxWidthWrapper } from '@/components/max-width-wapper'
 import Product from '@/components/product'
 import { products } from '@/lib'
+import { comma } from '@/lib/utils'
 import Image from 'next/image'
 
 export default function Page({ params }: { params: { productId: string } }) {
@@ -28,7 +29,11 @@ export default function Page({ params }: { params: { productId: string } }) {
               <h1 className="font-semibold text-black text-[40px]">
                 {prod?.name}
               </h1>
-              <h3 className="font-medium text-[36px]">{prod?.price} NGN</h3>
+
+              <h3 className="font-medium text-[36px]">
+                {/* @ts-ignore */}
+                {comma(prod?.price)} NGN
+              </h3>
               <p className="text-[21px] text-[#9E9E9E]">{prod?.descip}</p>
 
               <button className="w-[232px] h-[49px] rounded-[10px] border border-[#FF1A71] text-[#FF1A71] text-lg bg-transparent">
